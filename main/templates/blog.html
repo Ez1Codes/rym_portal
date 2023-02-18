@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Blog
+{% endblock %}
+
+{% block content %}
+
+    {% for blog in blog| reverse %}
+    <div class="card" id="container">
+        <br>
+
+        <div class="card-header">
+            {{blog.title}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-test">
+              <p>{{ blog.content}}</p>
+              <p>blog.author</p>
+            </p>
+            <a href="{{ url_for('logout_page') }}" class="btn btn-primary btn-sm"> Logout </a>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
+

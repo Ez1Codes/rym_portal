@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Blog Page
+{% endblock %}
+
+{% block content %}
+
+<style>
+    #container{
+        margin-top: 3em;
+        text-align: justify;
+        padding-inline-start: 2em;
+        padding-inline-end: 2em;
+    }
+</style>
+{% if current_user.username == 'Admin'%}
+        <br>
+        <a href="{{url_for('admin_blog')}}" class="btn btn-primary btn-sm"">Add a Blog Post</a>
+
+{% endif %}
+
+    {% for blog in blog| reverse %}
+        <div class="card" id="container">
+        
+            <div class="card-header">
+                <strong>{{blog.blogname|safe}}</strong>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-test">
+                <p>{{ blog.content|safe}}</p>
+                <p>{{blog.author}}</p>
+                </p>
+                <a href="{{ url_for('post', id=blog.id) }}" class="btn btn-primary btn-sm"> Read </a>
+        </div><hr>
+    {% endfor %}
+
+
+{% endblock %}
+

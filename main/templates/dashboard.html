@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    #container{
+        padding-left: 5em;
+        border-top: 5em;
+    }
+</style>
+
+
+    <div class="card" id="container">
+
+        <h2>Dashboard</h2>
+        <br>
+
+        <div class="card-header">
+            {{current_user.username}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">User Info</h5>
+            <p class="card-test">
+                <strong>User ID : </strong>{{ current_user.id}} <br>
+                <strong>Name : </strong> {{current_user.username}}<br>
+                <strong>Email : </strong>{{current_user.email}}<br>
+                <strong>About : </strong>{{current_user.about}}<br>
+            </p>
+            <a href="{{ url_for('logout_page') }}" class="btn btn-primary btn-sm"> Logout </a>
+        </div>
+
+    </div>
+
+
+{% endblock %}

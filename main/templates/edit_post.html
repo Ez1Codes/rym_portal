@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <form method="POST" class="form-activities" style="color:white">
+        {{ form.hidden_tag()}}
+        
+    {{ form.blogname.label()}}
+    {{ form.blogname(class="form-control", placeholder="Blog Title")}}
+
+    {{ form.author.label() }}
+    {{ form.author(class="form-control", placeholder="Author")}}
+
+    {{ form.blogcontent.label()}}
+    {{ form.blogcontent(class="form-control", placeholder="Blog Content")}}
+
+    <br>
+
+    {{ form.create(class="btn btn-lg  btn-primary btn-sm")}}
+    </form>
+    {{ ckeditor.load('full') }}
+    {{ ckeditor.config(name='blogcontent')}}
+</div>
+{% endblock %}
