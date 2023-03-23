@@ -8,22 +8,9 @@ from datetime import time
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home_page():
-    
     activity = Activity.query.all()
-    """if request =='GET':
-        activity = ActivitiesForm()
-        current_activity = request.form.activity('cur_activity')"""
-
     return render_template('index.html', activities=activity)
 
-"""@app.route('/main', methods=['GET', 'POST'])
-@login_required
-def main_page():
-    if request.method == 'GET':
-        users = User.query.all()
-        owned_items = Item.query.filter_by(owner=current_user.id)
-        return render_template('main.html', items=items, users=users,purchase_form=purchase_form, owned_items=owned_items, selling_form=selling_form)
-"""
 
 @app.route('/register', methods=['GET', 'POST'])
 def register_page():
@@ -52,7 +39,7 @@ def login_page():
         attempted_user = User.query.filter_by(username=form.username.data).first()
         if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
             login_user(attempted_user)
-            flash(f'You have successfully logged in', category='success')
+            flash('You have successfully logged in', category='success')
             return redirect(url_for('user_blog'))
         else:
             flash('Invalid credentials! ', category='danger')
@@ -162,7 +149,7 @@ def delete_post(id):
         blog = Blog.query.all()
         return render_template('userblog.html', blog=blog)
 
-    except:
+    except ValueError:
         post = Blog.query.all()
         return render_template('userblog.html')
         
