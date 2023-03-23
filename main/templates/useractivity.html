@@ -35,7 +35,9 @@
                 <p>{{ activity.desc|safe}}</p>
                 <p></p>
                 </p>
+                {% if current_user.username == 'Admin'%}
                 <a href="{{ url_for('logout_page') }}" class="btn btn-primary btn-sm"> Edit </a>
+                {% endif %}
         </div><hr>
     {% endfor %}
 

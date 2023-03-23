@@ -35,6 +35,7 @@ class ActivitiesForm(FlaskForm):
 
     activity_name = StringField(label='Activity name: ', validators=[DataRequired()])
     activity_desc = CKEditorField('Content', validators=[DataRequired()])
+    date = StringField('Date', validators=[DataRequired()])
     author = StringField('Author', validators=[DataRequired()])
     add = SubmitField(label='Ok')
 

@@ -71,7 +71,7 @@ def admin_blog():
         for err_msg in form.errors.values():
             flash(f"There was an erro {err_msg}", category='danger')
 
-    return render_template('adminblog.html', form=form)
+    return render_template('add_blog.html', form=form)
 
 
 @app.route('/activities/add', methods=['GET', 'POST'])
@@ -82,7 +82,8 @@ def admin_activity():
     if form.validate_on_submit():
         new_activity = Activity(name=form.activity_name.data,
                                 author=form.author.data,
-                                desc=form.activity_desc.data)
+                                desc=form.activity_desc.data,
+                                date = form.date.data)
         db.session.add(new_activity)
         db.session.commit()
         flash("Activity added successfully", category='success')
@@ -92,7 +93,7 @@ def admin_activity():
         for err_msg in form.errors.values():
             flash(f"There was an erro {err_msg}", category='danger')
 
-    return render_template('adminactivities.html', form=form)
+    return render_template('add_activities.html', form=form)
 
 
 @app.route('/blog')

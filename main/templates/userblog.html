@@ -16,7 +16,7 @@
 </style>
 {% if current_user.username == 'Admin'%}
         <br>
-        <a href="{{url_for('admin_blog')}}" class="btn btn-primary btn-sm"">Add a Blog Post</a>
+        <a href="{{url_for('admin_blog')}}" class="btn btn-primary btn-sm"> Add a Blog Post </a>
 
 {% endif %}
 
@@ -34,8 +34,8 @@
                 </p>
                 <a href="{{ url_for('post', id=blog.id) }}" class="btn btn-primary btn-sm"> Read </a>
         </div><hr>
+        </div> 
     {% endfor %}
 
 
 {% endblock %}
-

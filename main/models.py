@@ -33,6 +33,7 @@ class Activity(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=50), nullable=False, unique=True)
     author = db.Column(db.String(length=50), nullable=False)
+    date = db.Column(db.String(length=50), nullable=True)
     desc = db.Column(db.String(length=250), nullable=False)
 
 
