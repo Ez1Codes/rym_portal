@@ -1,9 +1,8 @@
 from main import app
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash
 from main.models import User, db, Activity,Blog
-from main.forms import DeleteBlog, RegisterForm, LoginForm, ActivitiesForm,BlogForm
+from main.forms import RegisterForm, LoginForm, ActivitiesForm,BlogForm
 from flask_login import login_user, logout_user
-from datetime import time
 
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
@@ -91,7 +90,7 @@ def admin_activity():
 
     if err_msg != {}:
         for err_msg in form.errors.values():
-            flash(f"There was an erro {err_msg}", category='danger')
+            flash(f"There was an error {err_msg}", category='danger')
 
     return render_template('add_activities.html', form=form)
 
@@ -104,8 +103,8 @@ def user_blog():
 
 @app.route('/activities')
 def user_activities():
-    activity = Activity.query.all()
-    return render_template('useractivity.html', activities=activity)
+    activities = Activity.query.all()
+    return render_template('activities.html', activities=activities)
 
 
 @app.route('/dashboard')

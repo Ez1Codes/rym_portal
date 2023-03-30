@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Activities
+{% endblock %}
+
+{% block content %}
+
+    {% if current_user.username == "Admin" %}
+    <a href="{{ url_for('admin_activity') }}" class="btn btn-primary btn-sm"> Add Activity </a>
+    {% endif %}
+
+    {% for activity in activities | reverse %}
+    <div class="card" id="container"
+            <div class="card-header">
+                {{activity.name}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-test">
+                <p>{{ activity.description }}</p>
+                <p><strong>By</strong> {{ activity.author }}</p>
+                </p>
+              
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
+

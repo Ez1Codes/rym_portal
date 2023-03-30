@@ -6,8 +6,9 @@
 
 {% block content %}
 <body class="text-center">
+    <h1 style="padding-top: 3em;">Fill this form to register</h1>
     <div class="container">
-        <form method="POST" class="form-register" style="color:white">
+        <form method="POST" class="form-register" style="color:white; margin-left: 80px; margin-right: 80px;">
             {{ form.hidden_tag()}}
             
         {{ form.username.label()}}
@@ -33,7 +34,7 @@
             <a class="btn btn-sm btn-secondary" href="{{url_for('login_page') }}"> Login</a>
         </div>
 
-        {{ form.submit(class="btn btn-lg btn-block btn-primary")}}
+        {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
         </form>
 
     </div>

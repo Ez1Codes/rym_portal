@@ -6,19 +6,14 @@
 <br>
 {% block content %}
 <body class="text-center">
+     <h1 style="margin-top: 5em;">Login</h1>
     <div class="container">
-        <form method="POST" class="form-register" style="color:white">
+        <form method="POST" class="form-register" style="color:black; padding-left: 20px; padding-right: 20px;">
             {{ form.hidden_tag()}}
-            <h1 class="h3 mb-3 font-weight-normal">
-                Login
-            </h1>
-            <br>
-            {{ form.username.label()}}
-            {{ form.username(class="form-control", placeholder="User Name")}}
 
-           
-    
-            {{ form.password.label()}}
+
+            {{ form.username(class="form-control", placeholder="User Name")}}
+                <br>
             {{ form.password(class="form-control", placeholder="Password")}}
     
            

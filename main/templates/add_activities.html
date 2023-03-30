@@ -1,88 +1,33 @@
-<!doctype html>
-<html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-      <title>Add Activity</title>
-   </head>
-   <body>
-      <!-- Navbar here -->
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{url_for('home_page')}}"><h1>RYM</h1></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{url_for('home_page')}}"> Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('user_blog')}}">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('user_activities')}}">Activities</a>
-                </li>
-            </ul>
-        </div>
-      </nav>
-      <!-- Future Content here -->
-        {% with messages = get_flashed_messages(with_categories=true)%}
-            {% if messages %}
-                {% for category,message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        {{ message|safe }}
-                    </div>           
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        
-        <body class="text-center">
-            <div class="container" style="margin-top: 15px;">
-                <form method="POST" class="form-activities" style="color:white"  style="margin-top: 15px;">
-                    {{ form.hidden_tag()}}
-                    
-                {{ form.activity_name.label()}}
-                {{ form.activity_name(class="form-control", placeholder="Activity Name")}}
+{{ ckeditor.load() }}
+{% extends 'base.html' %}
 
-                {{ form.author.label() }}
-                {{ form.author(class="form-control", placeholder="Author")}}
+{% block title %}
+    Add Activity
+{% endblock %}
 
-                {{ form.date.label() }}
-                {{ form.date(class="form-control", placeholder="Date")}}
-        
-                {{ form.activity_desc.label() }}
-                {{ form.activity_desc(class="form-control", placeholder="About Activity")}}
-                
-                <br>
-        
-                {{ form.add(class="btn btn-lg btn-block btn-primary")}}
-                </form>
-                {{ ckeditor.load() }}
-                {{ ckeditor.config(name='activity_desc')}}
-            </div>
-        </body>
-       
+{% block content %}
+        <form method="POST" class="form-activities" style="color:white"  style="margin-top: 15px;">
+            {{ form.hidden_tag()}}
+            
+        {{ form.activity_name.label()}}
+        {{ form.activity_name(class="form-control", placeholder="Activity Name")}}
 
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-   </body>
-   <style>
-      body {
-      background-color:  white;
-      color: black;
-      }
-   </style>
-</html>
+        {{ form.author.label() }}
+        {{ form.author(class="form-control", placeholder="Author")}}
+
+        {{ form.date.label() }}
+        {{ form.date(class="form-control", placeholder="Date")}}
+
+        {{ form.activity_desc.label() }}
+        {{ form.activity_desc(class="form-control", placeholder="About Activity")}}
+        
+        <br>
+
+        {{ form.add(class="btn btn-lg btn-block btn-primary")}}
+        </form>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='activity_desc')}}
+    </div>
+{% endblock %}
 
 

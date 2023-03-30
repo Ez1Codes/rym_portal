@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,16 +8,12 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/images.css') }}">
-
-    
-
-    
-
-<link href="{{ url_for ('static', filename='/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for ('static', filename='/css/bootstrap.min.css') }}" rel="stylesheet">
 
 <style>
         
     .bd-placeholder-img {
+        height: 80em;
         font-size: 1.125rem;
         text-anchor: middle;
         background-image: url("{{ url_for('static', filename='images/carousel/rousel1.jpg')}}");
@@ -40,10 +37,10 @@
 
   .bd-placeholder-img1 {
         font-size: 1.125rem;
-    text-anchor: middle;
+        text-anchor: middle;
         background-image: url("{{ url_for('static', filename='images/carousel/rosel2.jpg') }}");
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: local;
         opacity: 0.5;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -73,7 +70,6 @@
 
 
     .b-example-divider {
-        height: 3rem;
         background-color: rgba(0, 0, 0, .1);
         border: solid rgba(0, 0, 0, .15);
         border-width: 1px 0;
@@ -225,7 +221,6 @@
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
    
@@ -235,13 +230,13 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
+    <!-- <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading fw-normal lh-1">Sunday Special<span class="text-muted"></span></h2>
         <p class="lead">The most well dress Responsible Young Man on the second day of the annual Believers conference. <br>Dr. Williams Tingbani </p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
       </div>
     </div>
 
@@ -274,14 +269,6 @@
     <!-- /END THE FEATURETTES -->
 
     </div><!-- /.container -->
-
-
-  <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
-</main>
 
 
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
